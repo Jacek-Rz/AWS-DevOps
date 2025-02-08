@@ -45,7 +45,7 @@ aws ec2 describe-images --filters Name=platform-details,Values=Windows --query I
 - to run instance:
 aws ec2 run-instances --image-id "ami-0fcb037987698aecb" --instance-type "t2.micro" --key-name "KEY-NAME" \
     --network-interfaces '{"AssociatePublicIpAddress":true,"DeviceIndex":0,"Groups":["sg-preview-1"]}' \
-    --tag-specifications '{"ResourceType":"instance","Tags":[{"Key":"Name","Value":"INSTANCE NAME"}]}' \
+    --tag-specifications '{"ResourceType":"instance","Tags":[{"Key":"Name","Value":"INSTANCE NAME"}]}'
 
 - to list instances:
 aws ec2 describe-instances
@@ -53,3 +53,14 @@ aws ec2 describe-instance-status
 
 - to terminate and delete instance:
 aws ec2 terminate-instances --instance-ids RUNNING-INSTANCE-ID
+
+### Creating own VPC and subnets
+1. Create own VPC:
+- creating 10.20.0.0/16 VPC:
+aws ec2 create-vpc --cidr-block 10.20.0.0/16 --tag-specifications '{"ResourceType":"vpc","Tags":[{"Key":"Name","Value":"MY VPC 01"}]}'
+
+- to list VPC:
+aws ec2 describe-vpcs
+
+- to delete VPC:
+aws ec2 delete-vpc --vpc-id MY-VPC-ID
