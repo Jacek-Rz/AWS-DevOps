@@ -13,12 +13,13 @@ You can find AWS CLI config in file *$HOME/.aws/config* and under section **[def
 - cli_history = enabled - you can enable commands history
 
 ### Enabling auto-completion
-I assume that you install aws-cli from snap and you use bash shell. So you can find aws_completer in this location:
-*/snap/aws-cli/current/bin/aws_completer*
+I assume that you install aws-cli from snap and you use bash shell.
+So you can find aws_completer in this location:
+- */snap/aws-cli/current/bin/aws_completer*.
 Edit your *~/.profile* and add line at the end of the file:
-**export PATH=/snap/aws-cli/current/bin/:$PATH**
+- **export PATH=/snap/aws-cli/current/bin/:$PATH**.
 Edit your *~/.bashrc and add this command at the end of the file:
-**complete -C '/snap/aws-cli/current/bin/aws_completer' aws*
+- **complete -C '/snap/aws-cli/current/bin/aws_completer' aws*.
 Now after logout and login you can use autocompletion with *TAB*.
 AWS CLI also has autocompletion under interactive mode. Simply type **aws[ENTER]** and you are in the interactive mode.
 Start typing and you will see hints.
